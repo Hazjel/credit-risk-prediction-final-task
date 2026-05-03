@@ -26,11 +26,13 @@ Seluruh model dioptimasi tidak menggunakan default threshold 0.5, melainkan meng
 - *Overfit Gap sangat rendah (0.028), menunjukkan model mampu melakukan generalisasi dengan baik pada data yang belum pernah dilihat.*
 
 ## Business Recommendations
-Berdasarkan hasil pemodelan, berikut adalah rekomendasi strategis untuk implementasi bisnis:
-1. **Deployment Model XGBoost:** Gunakan XGBoost dengan threshold yang telah dioptimasi sebagai model utama pada fase *credit scoring* awal.
-2. **Gunakan sebagai Decision Support:** Model tidak dirancang untuk 100% menggantikan keputusan manusia. Jadikan output probabilitas model sebagai "lampu kuning" bagi tim *underwriter* sebelum menyetujui peminjam berisiko tinggi.
-3. **Monitoring Berkala:** Fokuskan pemantauan pada angka *False Negative*. Karena sifat pasar yang dinamis, lakukan kalibrasi ulang (retrain) model setidaknya setiap kuartal dengan memasukkan data historis terbaru.
-4. **Integrasi Data Lanjutan:** Mengingat dataset saat ini hanya terbatas pada data aplikasi awal (*origination*), penambahan *behavioral data* atau skor biro kredit eksternal di masa mendatang akan sangat membantu mendongkrak performa AUC model hingga menembus >0.75.
+Berdasarkan hasil penemuan Exploratory Data Analysis (EDA) dan pemodelan, berikut adalah rekomendasi strategis untuk implementasi bisnis:
+
+- Deploy **XGBoost sebagai decision-support layer** — bukan *verdict* final, melainkan peringatan dini (*pre-screening*).
+- Hentikan **auto-approval untuk Grade E-G** — alihkan ke *manual review* oleh *Underwriter* senior.
+- Terapkan **batas DTI lebih ketat bagi Penyewa (RENT)** — mitigasi risiko kerentanan kas akibat beban sewa tak tercatat.
+- Ubah **pencairan Debt Consolidation langsung ke kreditur asal** — cegah penyalahgunaan dana tunai baru oleh nasabah.
+- Gunakan **ML scoring sebagai prescreening awal** — berhenti menutupi risiko tinggi hanya dengan menaikkan bunga (*adverse selection*).
 
 ## Repository Structure
 - `credit_risk.ipynb`: Jupyter Notebook berisi *End-to-End Pipeline* (EDA, Data Prep, Modeling, Evaluation).
