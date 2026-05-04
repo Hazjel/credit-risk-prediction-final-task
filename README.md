@@ -36,6 +36,6 @@ Berdasarkan hasil penemuan Exploratory Data Analysis (EDA) dan pemodelan, beriku
 
 ## Repository Structure
 - `credit_risk.ipynb`: Jupyter Notebook berisi *End-to-End Pipeline* (EDA, Data Prep, Modeling, Evaluation).
-- `credit_risk_presentation.pdf`: Slide presentasi hasil analisis (*Business Deck*).
+- `Jian Hazel Sitorus_VIX_IDX Partners.pdf`: Slide presentasi hasil analisis (*Business Deck*).
 - `loan_data_2007_2014.csv`: Dataset asli Lending Club (dikelola via Git LFS).
 - `LCDataDictionary.xlsx`: Kamus data berisi penjelasan masing-masing fitur.
